@@ -22,7 +22,10 @@ function App() {
               <BsFillQuestionCircleFill />
             </div>
           </label>
-          <input type="text" placeholder="How many years to go" className="input input-bordered w-full" />
+          <label className="input-group">
+            <input type="text" className="input input-bordered w-full" />
+            <span className=''>Years</span>
+          </label>
         </div>
 
         <div className="form-control w-full mb-4">
