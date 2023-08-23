@@ -6,7 +6,7 @@ import { BsFillQuestionCircleFill } from "react-icons/bs";
 
 function App() {
   const [duration, setDuration] = useState(0)
-  const [price, setPrice] = useState(null)
+  const [price, setPrice] = useState(0)
   const [dpPercentage, setDpPercentage] = useState(0)
   const [downPayment, setDownPayment] = useState(0)
   const [inflationPercentage, setInflationPercentage] = useState(5)
@@ -35,7 +35,7 @@ function App() {
     }).format(number);
   }
 
-  const handleNumberChange = (e) => {
+  const handlePriceInput = (e) => {
     const inputValue = e.target.value;
     const numericInput = inputValue.replace(/[^0-9]/g, '');
     setPrice(numericInput);
@@ -61,7 +61,7 @@ function App() {
             </div>
           </label>
           <label className="input-group">
-            <input type="text" className="input input-bordered w-full" onInput={(e) => setDuration(e.target.value)} />
+            <input type="number" className="input input-bordered w-full" value={duration} onInput={(e) => setDuration(e.target.value)} />
             <span className=''>Years</span>
           </label>
         </div>
@@ -72,7 +72,7 @@ function App() {
           </label>
           <label className="input-group">
             <span>Rp</span>
-            <input type="text" className="input input-bordered w-full" value={price} onInput={(e) => setPrice(e.target.value)} onChange={handleNumberChange} />
+            <input type="text" className="input input-bordered w-full" value={formatToRupiah(price)} onInput={handlePriceInput} />
           </label>
         </div>
 
@@ -81,7 +81,7 @@ function App() {
             <span className="label-text">% Down Payment you want to pay of</span>
           </label>
           <label className="input-group">
-            <input type="text" className="input input-bordered w-full" value={dpPercentage} onInput={(e) => setDpPercentage(e.target.value)} />
+            <input type="number" className="input input-bordered w-full" value={dpPercentage} onInput={(e) => setDpPercentage(e.target.value)} />
             <span>%</span>
           </label>
           <label className="label">
@@ -95,7 +95,7 @@ function App() {
           </label>
           <label className="input-group">
             <span>Rp</span>
-            <input type="text" className="input input-bordered w-full" value={downPayment} disabled />
+            <input type="text" className="input input-bordered w-full" value={formatToRupiah(downPayment)} disabled />
           </label>
         </div>
 
@@ -107,7 +107,7 @@ function App() {
             </div>
           </label>
           <label className="input-group">
-            <input type="text" className="input input-bordered w-full" value={inflationPercentage} onInput={(e) => setInflationPercentage(e.target.value)} />
+            <input type="number" className="input input-bordered w-full" value={inflationPercentage} onInput={(e) => setInflationPercentage(e.target.value)} />
             <span>%/Year</span>
           </label>
         </div>
