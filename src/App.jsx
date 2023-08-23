@@ -51,81 +51,83 @@ function App() {
 
   return (
     <>
-      <Header />
-      <div className="max-w-lg mx-auto px-0 py-6 px-6 md:px-0">
-        <div className="form-control w-full mb-4">
-          <label className="label">
-            <span className="label-text">You want to achieve your dreams</span>
-            <div className="tooltip" data-tip="How many more years you want to buy your dream property.">
-              <BsFillQuestionCircleFill />
-            </div>
-          </label>
-          <label className="input-group">
-            <input type="number" className="input input-bordered w-full" value={duration} onInput={(e) => setDuration(e.target.value)} />
-            <span className=''>Years</span>
-          </label>
-        </div>
+      <div className='max-w-lg mx-auto px-4 py-4 px-6 md:px-6 bg-white'>
+        <Header />
+        <div>
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text">You want to achieve your dreams</span>
+              <div className="tooltip" data-tip="How many more years you want to buy your dream property.">
+                <BsFillQuestionCircleFill />
+              </div>
+            </label>
+            <label className="input-group">
+              <input type="number" className="input input-bordered input-primary w-full" value={duration} onInput={(e) => setDuration(e.target.value)} />
+              <span className='bg-primary'>Years</span>
+            </label>
+          </div>
 
-        <div className="form-control w-full mb-4">
-          <label className="label">
-            <span className="label-text">Current price of your dream property</span>
-          </label>
-          <label className="input-group">
-            <span>Rp</span>
-            <input type="text" className="input input-bordered w-full" value={formatToRupiah(price)} onInput={handlePriceInput} />
-          </label>
-        </div>
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text">Current price of your dream property</span>
+            </label>
+            <label className="input-group">
+              <span className='bg-primary'>Rp</span>
+              <input type="text" className="input input-bordered input-primary w-full" value={formatToRupiah(price)} onInput={handlePriceInput} />
+            </label>
+          </div>
 
-        <div className="form-control w-full mb-4">
-          <label className="label">
-            <span className="label-text">% Down Payment you want to pay of</span>
-          </label>
-          <label className="input-group">
-            <input type="number" className="input input-bordered w-full" value={dpPercentage} onInput={(e) => setDpPercentage(e.target.value)} />
-            <span>%</span>
-          </label>
-          <label className="label">
-            <span className="label-text-alt">*Input 100% if you want to pay in full.</span>
-          </label>
-        </div>
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text">% Down Payment you want to pay of</span>
+            </label>
+            <label className="input-group">
+              <input type="number" className="input input-bordered input-primary w-full" value={dpPercentage} onInput={(e) => setDpPercentage(e.target.value)} />
+              <span className='bg-primary'>%</span>
+            </label>
+            <label className="label">
+              <span className="label-text-alt">*Input 100% if you want to pay in full.</span>
+            </label>
+          </div>
 
-        <div className="form-control w-full mb-4">
-          <label className="label">
-            <span className="label-text">Your Down Payment is equivalent to</span>
-          </label>
-          <label className="input-group">
-            <span>Rp</span>
-            <input type="text" className="input input-bordered w-full" value={formatToRupiah(downPayment)} disabled />
-          </label>
-        </div>
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text">Your Down Payment is equivalent to</span>
+            </label>
+            <label className="input-group">
+              <span className='bg-primary'>Rp</span>
+              <input type="text" className="input input-bordered input-primary w-full" value={formatToRupiah(downPayment)} disabled />
+            </label>
+          </div>
 
-        <div className="form-control w-full mb-4">
-          <label className="label">
-            <span className="label-text">Property inflation assumptions are</span>
-            <div className="tooltip" data-tip="Inflation can be defined as a general and continuous increase in the prices of goods and services over a period of time.">
-              <BsFillQuestionCircleFill />
-            </div>
-          </label>
-          <label className="input-group">
-            <input type="number" className="input input-bordered w-full" value={inflationPercentage} onInput={(e) => setInflationPercentage(e.target.value)} />
-            <span>%/Year</span>
-          </label>
-        </div>
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text">Property inflation assumptions are</span>
+              <div className="tooltip" data-tip="Inflation can be defined as a general and continuous increase in the prices of goods and services over a period of time.">
+                <BsFillQuestionCircleFill />
+              </div>
+            </label>
+            <label className="input-group">
+              <input type="number" className="input input-bordered input-primary w-full" value={inflationPercentage} onInput={(e) => setInflationPercentage(e.target.value)} />
+              <span className='bg-primary'>%/Year</span>
+            </label>
+          </div>
 
-        <div className="form-control w-full mb-4">
-          <label className="label">
-            <span className="label-text">The total money you will need in {duration} years to pay the down payment is</span>
-            <div className="tooltip" data-tip="Due to inflation every year, this affects the price of your dream property.">
-              <BsFillQuestionCircleFill />
-            </div>
-          </label>
-          <label className="input-group">
-            <span>Rp</span>
-            <input type="text" className="input input-bordered w-full" value={formatToRupiah(downPaymentFinal.toFixed(0))} disabled />
-          </label>
+          <div className="form-control w-full mb-4">
+            <label className="label">
+              <span className="label-text">The total money you will need in <span className='font-bold decoration-primary'>{duration}</span> years to pay the down payment is</span>
+              <div className="tooltip" data-tip="Due to inflation every year, this affects the price of your dream property.">
+                <BsFillQuestionCircleFill />
+              </div>
+            </label>
+            <label className="input-group">
+              <span className='bg-primary'>Rp</span>
+              <input type="text" className="input input-bordered input-primary w-full" value={formatToRupiah(downPaymentFinal.toFixed(0))} disabled />
+            </label>
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   )
 }
