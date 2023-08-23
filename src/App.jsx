@@ -48,7 +48,6 @@ function App() {
     console.log(downPaymentFinal)
   }, [duration, price, dpPercentage, downPayment, inflationPercentage, downPaymentFinal])
 
-
   return (
     <>
       <div className='max-w-lg mx-auto px-4 py-4 px-6 md:px-6 bg-white'>
@@ -61,7 +60,7 @@ function App() {
                 <BsFillQuestionCircleFill />
               </div>
             </label>
-            <label className="input-group">
+            <label className="input-group shadow">
               <input type="number" className="input input-bordered input-primary w-full" value={duration} onInput={(e) => setDuration(e.target.value)} />
               <span className='bg-primary'>Years</span>
             </label>
